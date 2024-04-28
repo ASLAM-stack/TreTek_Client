@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddTouristSpot = () => {
   const {user} = useContext(AuthContext)
@@ -19,9 +20,29 @@ const AddTouristSpot = () => {
         const user_email = form.userEmail.value;
         const spotInfo = {image,tourists_spot_name,country_Name,location,short_description,average_cost,seasonality,travel_time,totalVisitors_PerYear,user_name,user_email};
         console.log(spotInfo);
+        fetch("http://localhost:5000/addTouristSpot",{
+          method:"POST",
+          headers:{
+            "Content-type":"application/json"
+          },
+          body:JSON.stringify(spotInfo)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data);
+          if(data.insertedId){
+            Swal.fire({
+              title: 'Success!',
+              text: 'Added Tourist Spot successfully!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+          })
+          form.reset()
+          }
+        })
     }
   return (
-    <div className="bg-[#64646411] py-8  md:p-8 rounded-xl shadow-lg">
+    <div className="bg-[#64646411] py-8  md:p-8 rounded-xl shadow-lg my-12">
       <h1 className="text-center text-4xl md:text-6xl font-bold">Add Tourist Spot</h1>
       <form onSubmit={handleAddSpot} className=" p-4 md:p-10">
         <div className="flex gap-6 flex-wrap justify-between">
