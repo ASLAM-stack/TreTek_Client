@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 const AddTouristSpot = () => {
+  const {user} = useContext(AuthContext)
     const handleAddSpot =(e) =>{
         e.preventDefault();
         const form = e.target;
@@ -94,8 +98,9 @@ const AddTouristSpot = () => {
                 id="userEmail"
                 type="text"
                 name="userEmail"
+                defaultValue={user?.email}
                 className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-              />
+               disabled/>
             </div>
           </div>
     
@@ -152,8 +157,9 @@ const AddTouristSpot = () => {
                 id="userName"
                 type="text"
                 name="userName"
+                defaultValue={user?.displayName}
                 className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-              />
+               disabled/>
             </div>
              
           </div>

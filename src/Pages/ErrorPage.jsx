@@ -5,7 +5,7 @@ const ErrorPage = () => {
     console.error(error);
     return (
         <div>
-            <div className="cont-404 flex flex-col items-center justify-center h-2/3">
+            <div className="cont-404 flex flex-col items-center justify-center h-[80vh]">
                 
                 <img className="w-8/12" src="/404.gif" alt="" />
             
