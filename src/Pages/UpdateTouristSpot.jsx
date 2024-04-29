@@ -33,7 +33,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="spotName"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="countryName" className="block mb-2 text-sm font-bold">
@@ -60,7 +60,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="shortDescrip"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="Seasonality" className="block mb-2 text-sm font-bold">
@@ -86,7 +86,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="totalVisit"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="userEmail" className="block mb-2 text-sm font-bold">
@@ -97,7 +97,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="userEmail"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
             </div>
       
@@ -111,7 +111,7 @@ const UpdateTouristSpot = () => {
                   type="url"
                   name="imgUrl"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="location" className="block mb-2 text-sm font-bold">
@@ -122,7 +122,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="location"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="avrgCost" className="block mb-2 text-sm font-bold">
@@ -133,7 +133,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="avrgCost"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="Travel_Time" className="block mb-2 text-sm font-bold">
@@ -144,7 +144,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="Travel_Time"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
               <div>
                 <label htmlFor="userName" className="block mb-2 text-sm font-bold">
@@ -155,7 +155,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="userName"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                />
+                required/>
               </div>
                
             </div>

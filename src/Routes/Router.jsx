@@ -11,6 +11,7 @@ import UpdateTouristSpot from "../Pages/UpdateTouristSpot";
 import AllTouristSpot from "../Pages/AllTouristSpot";
 import MyList from "../Pages/MyList";
 import PrivateRouter from "../Protected/PrivateRouter";
+import Details from "../Component/Details";
 
   const router = createBrowserRouter([
     {
@@ -48,6 +49,12 @@ import PrivateRouter from "../Protected/PrivateRouter";
           path:'/myList',
           element:<PrivateRouter>
             <MyList></MyList>
+          </PrivateRouter>
+        },
+        {
+          path:'/details/:id',
+          element:<PrivateRouter>
+            <Details></Details>
           </PrivateRouter>
         }
       ]
