@@ -3,6 +3,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import MyListCard from "../Component/MyListCard";
 import { Helmet } from "react-helmet-async";
+import NoData from "../Component/NoData";
 
  
 
@@ -18,8 +19,11 @@ const MyList = () => {
         return data ;
       }
     })
-
+     const info = data || [];
     console.log(data);
+    if (info?.length === 0) {
+      return <NoData></NoData>
+    }
     return (
         <div className="mt-12 mb-12">
           <Helmet>
@@ -56,7 +60,7 @@ const MyList = () => {
         <h2 className="text-4xl font-bold">Your Tourist Places</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
-        {data?.map(spot => <MyListCard key={spot._id} spot={spot} refetch={refetch}></MyListCard>)}
+        {info?.map(spot => <MyListCard key={spot._id} spot={spot} refetch={refetch}></MyListCard>)}
       </div>
         </div>
     );
