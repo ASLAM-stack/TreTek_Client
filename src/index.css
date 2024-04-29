@@ -18,3 +18,6 @@
 img{
     width: 100%;
 }
+.section-title span svg{
+    fill: #63AB45;
+}

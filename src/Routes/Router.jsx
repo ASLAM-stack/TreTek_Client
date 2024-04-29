@@ -55,7 +55,8 @@ import Details from "../Component/Details";
           path:'/details/:id',
           element:<PrivateRouter>
             <Details></Details>
-          </PrivateRouter>
+          </PrivateRouter>,
+          loader:({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
         }
       ]
     },
