@@ -1,5 +1,8 @@
+import { Fade } from "react-awesome-reveal";
+
 const NewsLetter = () => {
   return (
+    <Fade direction="up" delay={.4}>
     <div className="py-24 bg-[#00f7ff36] flex flex-col items-center mt-16 mb-20 rounded-xl mx-2 md:mx-0">
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-2">Join The Newsletter</h1>
       <p className="text-base text-gray-600 text-center">To receive our best monthly deals</p>
@@ -19,6 +22,7 @@ const NewsLetter = () => {
        </div>
       </div>
     </div>
+    </Fade>
   );
 };
 

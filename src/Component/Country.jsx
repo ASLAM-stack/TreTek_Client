@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
 
+
  
 
 const Country = () => {
@@ -45,11 +46,14 @@ const Country = () => {
           </span>
           <h2 className="text-4xl font-bold">Available Tourist Country</h2>
         </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
           {
-            spots.slice(0,6)?.map(spot => <CountryCard spot={spot} key={spot._id} country={spot.country_Name}></CountryCard>)
+            spots?.map(spot => <CountryCard spot={spot} key={spot._id} country={spot.country_Name}></CountryCard>)
           }
         </div>
+        
+        
       </div>
     );
 };

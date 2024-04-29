@@ -1,8 +1,10 @@
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const TouristSpotsCard = ({spot}) => {
     const {_id,image,tourists_spot_name,location,short_description }  = spot;
   return (
+    <Fade direction="up" delay={.5} triggerOnce={true}>
     <div>
       <div className="card w-full bg-base-100 shadow-xl">
         <figure>
@@ -23,6 +25,7 @@ const TouristSpotsCard = ({spot}) => {
         </div>
       </div>
     </div>
+    </Fade>
   );
 };
 

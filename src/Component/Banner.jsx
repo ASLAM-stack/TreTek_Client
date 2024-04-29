@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Fade } from "react-awesome-reveal";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -29,12 +30,17 @@ const Banner = () => {
       >
         <SwiperSlide> 
         <div className="bg-[url('/1.jpg')] space-y-4 w-full pl-4 md:pl-16 h-[500px] bg-cover flex flex-col justify-center bg-center rounded-2xl">
-        <h1 className="font-work font-bold text-4xl md:text-7xl text-[#9253ff]">TreTek</h1>
+          <Fade direction='down' triggerOnce={true}>
+          <h1 className="font-work font-bold text-4xl md:text-7xl text-[#9253ff]">TreTek</h1>
+          </Fade>
+        
         <p className="text-white text-base ">
         Embark on unforgettable journeys with our travel agency<br /> where dreams meet destinations and experiences become memories.
         </p>
         <p></p>
+        <Fade direction='up' triggerOnce={true}>
         <div className="space-x-2">
+          
           <a
             href="#_"
             className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group"
@@ -53,7 +59,10 @@ const Banner = () => {
             Explore
             </span>
           </a>
+          
+         
         </div>
+        </Fade>
       </div>
         </SwiperSlide>
         <SwiperSlide> 
