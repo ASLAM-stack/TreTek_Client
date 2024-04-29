@@ -12,6 +12,7 @@ import AllTouristSpot from "../Pages/AllTouristSpot";
 import MyList from "../Pages/MyList";
 import PrivateRouter from "../Protected/PrivateRouter";
 import Details from "../Component/Details";
+import CountrySpots from "../Pages/CountrySpots";
 
   const router = createBrowserRouter([
     {
@@ -59,6 +60,11 @@ import Details from "../Component/Details";
             <Details></Details>
           </PrivateRouter>,
           loader:({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
+        },
+        {
+          path:'/country/:country_name',
+          element:<CountrySpots></CountrySpots>,
+          loader:({params}) => fetch(`http://localhost:5000/country/${params.country_name}`)
         }
       ]
     },
