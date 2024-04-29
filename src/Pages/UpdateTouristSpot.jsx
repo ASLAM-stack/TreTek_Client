@@ -1,6 +1,11 @@
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
  
 
 const UpdateTouristSpot = () => {
+  const spot = useLoaderData();
+  const {_id,image,tourists_spot_name,country_Name,location,short_description,average_cost,seasonality,travel_time,totalVisitors_PerYear,user_name,user_email} =spot;
     const handleUpdateSpot =(e) =>{
         e.preventDefault();
         const form = e.target;
@@ -17,9 +22,30 @@ const UpdateTouristSpot = () => {
         const user_email = form.userEmail.value;
         const spotInfo = {image,tourists_spot_name,country_Name,location,short_description,average_cost,seasonality,travel_time,totalVisitors_PerYear,user_name,user_email};
         console.log(spotInfo);
+        fetch(`http://localhost:5000/update/${_id}`,{
+          method:"PUT",
+          headers:{
+            "content-type" : "application/json"
+          },
+          body:JSON.stringify(spotInfo)
+        })
+        .then (res => res.json())
+        .then(data => {
+          console.log(data);
+          if (data.modifiedCount > 0) {
+            Swal.fire({
+              title: 'Success!',
+              text: 'Update Tourist Spot successfully!',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+          })
+    
+          }
+        })
+       
     }
     return (
-        <div className="bg-[#64646411] py-8  md:p-8 rounded-xl shadow-lg">
+        <div className="bg-[#64646411] py-8  md:p-8 rounded-xl shadow-lg my-12">
         <h1 className="text-center text-4xl md:text-6xl font-bold">Update Tourist Spot</h1>
         <form onSubmit={handleUpdateSpot} className=" p-4 md:p-10">
           <div className="flex gap-6 flex-wrap justify-between">
@@ -32,6 +58,7 @@ const UpdateTouristSpot = () => {
                   id="spotName"
                   type="text"
                   name="spotName"
+                  defaultValue={tourists_spot_name}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -39,7 +66,7 @@ const UpdateTouristSpot = () => {
                 <label htmlFor="countryName" className="block mb-2 text-sm font-bold">
                   Country Name
                 </label>
-                <select className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800" name="countryName" id="countryName">
+                <select className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800" name="countryName" id="countryName" defaultValue={country_Name}>
                   <option value="" disabled>Select Country</option>
                   <option value="Bangladesh">
                   Bangladesh
@@ -59,6 +86,7 @@ const UpdateTouristSpot = () => {
                   id="shortDescrip"
                   type="text"
                   name="shortDescrip"
+                  defaultValue={short_description}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -66,7 +94,8 @@ const UpdateTouristSpot = () => {
                 <label htmlFor="Seasonality" className="block mb-2 text-sm font-bold">
                   Seasonality
                 </label>
-                <select className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800" name="Seasonality" id="Seasonality">
+                <select className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800" name="Seasonality" id="Seasonality" defaultValue={seasonality
+                }>
                   <option value="" disabled>Select Season</option>
                   <option value="Summer">
                   Summer
@@ -85,6 +114,7 @@ const UpdateTouristSpot = () => {
                   id="totalVisit"
                   type="text"
                   name="totalVisit"
+                  defaultValue={totalVisitors_PerYear}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -96,6 +126,8 @@ const UpdateTouristSpot = () => {
                   id="userEmail"
                   type="text"
                   name="userEmail"
+                  defaultValue={user_email}
+                  disabled
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -110,6 +142,7 @@ const UpdateTouristSpot = () => {
                   id="imgUrl"
                   type="url"
                   name="imgUrl"
+                  defaultValue={image}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -122,7 +155,7 @@ const UpdateTouristSpot = () => {
                   type="text"
                   name="location"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                required/>
+                required defaultValue={location}/>
               </div>
               <div>
                 <label htmlFor="avrgCost" className="block mb-2 text-sm font-bold">
@@ -132,6 +165,7 @@ const UpdateTouristSpot = () => {
                   id="avrgCost"
                   type="text"
                   name="avrgCost"
+                  defaultValue={average_cost}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -143,6 +177,7 @@ const UpdateTouristSpot = () => {
                   id="Travel_Time"
                   type="text"
                   name="Travel_Time"
+                  defaultValue={travel_time}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
                 required/>
               </div>
@@ -154,8 +189,9 @@ const UpdateTouristSpot = () => {
                   id="userName"
                   type="text"
                   name="userName"
+                  defaultValue={user_name}
                   className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
-                required/>
+                required disabled/>
               </div>
                
             </div>

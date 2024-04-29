@@ -38,8 +38,10 @@ import Details from "../Component/Details";
           </PrivateRouter>
         },
         {
-          path:'/updatespot',
-          element:<UpdateTouristSpot></UpdateTouristSpot>
+          path:'/updatespot/:id',
+          element:<UpdateTouristSpot></UpdateTouristSpot>,
+          loader:({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
+
         },
         {
           path:'/alltouristspots',
