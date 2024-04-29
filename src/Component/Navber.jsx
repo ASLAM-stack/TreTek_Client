@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css'
 
  
 
 const Navber = () => {
     const {user,logOut} = useContext(AuthContext)
+  
     return (
         <div className="shadow">
                 <div className="container">
@@ -92,8 +95,9 @@ const Navber = () => {
 </label>
             <div className="dropdown dropdown-end ">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar float-right">
-            <div className="w-10 rounded-full">
-              <img alt="Tailwind CSS Navbar component" src={user.photoURL}  />
+            <div className="w-10 rounded-full my-anchor-element">
+              <img alt="Tailwind CSS Navbar component " src={user.photoURL}  />
+              <Tooltip anchorSelect=".my-anchor-element" content={user.displayName}/>
             </div>
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-12 p-2 shadow bg-base-100 rounded-box w-52 z-20">
