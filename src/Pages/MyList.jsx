@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import MyListCard from "../Component/MyListCard";
 import { Helmet } from "react-helmet-async";
 import NoData from "../Component/NoData";
+import Loading from "../Component/Loading";
 
  
 
@@ -59,9 +60,12 @@ const MyList = () => {
         </span>
         <h2 className="text-4xl font-bold">Your Tourist Places</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
+      {
+        isLoading ? <Loading></Loading> :  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
         {info?.map(spot => <MyListCard key={spot._id} spot={spot} refetch={refetch}></MyListCard>)}
       </div>
+      }
+     
         </div>
     );
 };
