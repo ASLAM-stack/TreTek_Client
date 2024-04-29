@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import TouristSpotsCard from "../Component/TouristSpotsCard";
+import { Helmet } from "react-helmet-async";
 
 
 const AllTouristSpot = () => {
@@ -13,6 +14,9 @@ const AllTouristSpot = () => {
     },[])
     return (
         <div className="mt-12 mb-12">
+          <Helmet>
+            <title>All Tourist Spots </title>
+          </Helmet>
         <div className="section-title text-center mb-10">
         <span className="flex justify-center items-center gap-2 font-satis text-[#63AB45] text-xl">
             <svg

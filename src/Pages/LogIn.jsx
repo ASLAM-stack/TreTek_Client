@@ -8,6 +8,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../FireBase/firebase.config";
+import { Helmet } from "react-helmet-async";
 
  
 
@@ -84,6 +85,11 @@ const LogIn = () => {
     return (
         <div>
              <div className="w-full flex items-center justify-center min-h-screen p-2 md:p-0">
+                <Helmet>
+                    <title>
+                        Log In
+                    </title>
+                </Helmet>
             <div className="md:w-[50%] md:p-20 p-5 w-full border-2 border-red-200 rounded-md shadow">
                 <div className="text-center mb-2">
                     <h1 className=" text-4xl font-bold mb-2">Log in</h1>

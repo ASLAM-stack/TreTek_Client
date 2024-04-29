@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import MyListCard from "../Component/MyListCard";
+import { Helmet } from "react-helmet-async";
 
  
 
@@ -21,6 +22,9 @@ const MyList = () => {
     console.log(data);
     return (
         <div className="mt-12 mb-12">
+          <Helmet>
+            <title>My List</title>
+          </Helmet>
              <div className="section-title text-center mb-10">
       <span className="flex justify-center items-center gap-2 font-satis text-[#63AB45] text-xl">
           <svg

@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../FireBase/firebase.config";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-
+import {  HelmetProvider } from 'react-helmet-async';
  
 export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
@@ -60,8 +60,12 @@ const AuthProvider = ({children}) => {
 
      
     return (
+        
         <AuthContext.Provider value={authInfo}>
-        {children}
+            <HelmetProvider>
+            {children}
+            </HelmetProvider>
+        
     </AuthContext.Provider>
     );
 };

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { BiCableCar } from "react-icons/bi";
 import { FaClockRotateLeft, FaMapLocation } from "react-icons/fa6";
 import { MdTravelExplore } from "react-icons/md";
@@ -7,6 +8,11 @@ const Details = () => {
     const spot = useLoaderData()
   return (
     <div>
+      <Helmet>
+        <title>
+          Details
+        </title>
+      </Helmet>
       <div className="section-title text-center mt-10 mb-12">
         <span className="flex justify-center items-center gap-2 font-satis text-[#63AB45] text-xl">
           <svg

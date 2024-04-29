@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
@@ -5,6 +6,9 @@ const ErrorPage = () => {
     console.error(error);
     return (
         <div>
+            <Helmet>
+                <title>ERROR</title>
+            </Helmet>
             <div className="cont-404 flex flex-col items-center justify-center h-[80vh]">
                 
                 <img className="w-8/12" src="/404.gif" alt="" />

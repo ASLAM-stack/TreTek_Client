@@ -8,6 +8,7 @@ import auth from "../FireBase/firebase.config";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 
 const SignUp = () => {
@@ -102,6 +103,11 @@ const SignUp = () => {
     return (
         <div>
              <div className="w-full flex items-center justify-center min-h-screen p-2 md:p-0">
+                <Helmet>
+                    <title>
+                        Sign Up
+                    </title>
+                </Helmet>
             <div className="md:w-[50%] p-5 md:p-20 w-full border-2 border-red-200 rounded-md shadow mb-12 mt-12">
                 <div className="text-center mb-2">
                     <h1 className=" text-4xl font-bold mb-2">Register Now</h1>

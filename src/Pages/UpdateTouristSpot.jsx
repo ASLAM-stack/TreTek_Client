@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -46,6 +47,11 @@ const UpdateTouristSpot = () => {
     }
     return (
         <div className="bg-[#64646411] py-8  md:p-8 rounded-xl shadow-lg my-12">
+          <Helmet>
+            <title>
+              Update Tourist Spot
+            </title>
+          </Helmet>
         <h1 className="text-center text-4xl md:text-6xl font-bold">Update Tourist Spot</h1>
         <form onSubmit={handleUpdateSpot} className=" p-4 md:p-10">
           <div className="flex gap-6 flex-wrap justify-between">
