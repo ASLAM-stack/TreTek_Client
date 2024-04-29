@@ -1,23 +1,36 @@
 import { useEffect, useState } from "react";
 import TouristSpotsCard from "../Component/TouristSpotsCard";
 import { Helmet } from "react-helmet-async";
+import Loading from "../Component/Loading";
 
 
 const AllTouristSpot = () => {
     const [spots,setSpots] = useState([]);
+    const [loading,setLoading] = useState(true)
+    const [sort,setSort] = useState([])
+    const [toggle,setToggle] = useState(true)
     useEffect(()=>{
       fetch('http://localhost:5000/addTouristSpot')
       .then(res => res.json())
       .then(data =>{
         setSpots(data)
+        setLoading(false)
       })
     },[])
+    const handleSort = () =>{
+      const sortArray = spots.sort((a,b) => a.average_cost - b.average_cost )
+      setSort(sortArray)
+      setToggle(false)
+      console.log(spots);
+       
+       
+    }
     return (
         <div className="mt-12 mb-12">
           <Helmet>
             <title>All Tourist Spots </title>
           </Helmet>
-        <div className="section-title text-center mb-10">
+        <div className="section-title text-center mb-5">
         <span className="flex justify-center items-center gap-2 font-satis text-[#63AB45] text-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -47,11 +60,22 @@ const AllTouristSpot = () => {
           </span>
           <h2 className="text-4xl font-bold">All Tourist Spots</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
+        <div className="flex justify-center items-center mb-5">
+        <div className="dropdown dropdown-hover">
+  <div tabIndex={0} role="button" className="btn m-1">Sort By</div>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li onClick={handleSort}><a>Average Cost</a></li>
+  </ul>
+</div>
+        </div>
+        {
+          loading ? <Loading></Loading> : <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
           {
-            spots?.map(spot => <TouristSpotsCard spot={spot} key={spot._id}></TouristSpotsCard>)
+            toggle ? spots?.map(spot => <TouristSpotsCard spot={spot} key={spot._id}></TouristSpotsCard>) : sort?.map(spot => <TouristSpotsCard spot={spot} key={spot._id}></TouristSpotsCard>) 
           }
         </div>
+        }
+        
       </div>
     );
 };

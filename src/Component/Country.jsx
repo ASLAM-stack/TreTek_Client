@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
+import Loading from "./Loading";
 
 
  
 
 const Country = () => {
     const [spots,setSpots] = useState([]);
+    const [loading,setLoading] = useState(true)
   useEffect(()=>{
     fetch('http://localhost:5000/countryList')
     .then(res => res.json())
     .then(data =>{
       setSpots(data)
+      setLoading(false)
     })
   },[])
   console.log(spots);
@@ -46,12 +49,14 @@ const Country = () => {
           </span>
           <h2 className="text-4xl font-bold">Available Tourist Country</h2>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
+        {
+          loading ? <Loading></Loading> : <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-4 md:p-0">
           {
             spots?.map(spot => <CountryCard spot={spot} key={spot._id} country={spot.country_Name}></CountryCard>)
           }
         </div>
+        }
+        
         
         
       </div>
