@@ -7,7 +7,7 @@ const Footer = () => {
         <div className=" bg-black">
         <footer className="footer p-10 bg-black text-base  text-white">
           <aside>
-             <img className="w-[100px]" src="/logofb.jpeg" alt="" />
+             <img className="w-[100px]" src="/Log34-removebg-preview.png" alt="" />
             <p>
               TerTek Tourism PVT LTD.
               <br />
