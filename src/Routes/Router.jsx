@@ -13,6 +13,7 @@ import MyList from "../Pages/MyList";
 import PrivateRouter from "../Protected/PrivateRouter";
 import Details from "../Component/Details";
 import CountrySpots from "../Pages/CountrySpots";
+import Profile from "../Pages/Profile";
 
   const router = createBrowserRouter([
     {
@@ -65,6 +66,12 @@ import CountrySpots from "../Pages/CountrySpots";
           path:'/country/:country_name',
           element:<CountrySpots></CountrySpots>,
           loader:({params}) => fetch(`https://trek-tek-crud-server.vercel.app/country/${params.country_name}`)
+        },
+        {
+          path:'/profile',
+          element:<PrivateRouter>
+            <Profile></Profile>
+          </PrivateRouter>
         }
       ]
     },

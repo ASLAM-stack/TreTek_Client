@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
@@ -8,6 +8,7 @@ import 'react-tooltip/dist/react-tooltip.css'
 
 const Navber = () => {
     const {user,logOut} = useContext(AuthContext)
+    
   
     return (
         <div className="shadow">
@@ -102,10 +103,10 @@ const Navber = () => {
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-12 p-2 shadow bg-base-100 rounded-box w-52 z-20">
             <li>
-              <a className="justify-between">
+              <Link to='/profile'  className="justify-between">
                 Profile
                 <span className="badge">New</span>
-              </a>
+              </Link>
             </li>
             <li><a onClick={logOut}>Logout</a></li>
           </ul>
