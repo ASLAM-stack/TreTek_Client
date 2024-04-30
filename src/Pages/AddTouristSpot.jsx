@@ -21,7 +21,7 @@ const AddTouristSpot = () => {
         const user_email = form.userEmail.value;
         const spotInfo = {image,tourists_spot_name,country_Name,location,short_description,average_cost,seasonality,travel_time,totalVisitors_PerYear,user_name,user_email};
         console.log(spotInfo);
-        fetch("http://localhost:5000/addTouristSpot",{
+        fetch("https://trek-tek-crud-server.vercel.app/addTouristSpot",{
           method:"POST",
           headers:{
             "Content-type":"application/json"

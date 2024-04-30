@@ -7,7 +7,7 @@ const TouristSpot = () => {
   const [spots,setSpots] = useState([]);
   const [loading,setLoading] = useState(true)
   useEffect(()=>{
-    fetch('http://localhost:5000/addTouristSpot')
+    fetch('https://trek-tek-crud-server.vercel.app/addTouristSpot')
     .then(res => res.json())
     .then(data =>{
       setSpots(data)

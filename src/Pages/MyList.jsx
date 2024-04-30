@@ -15,7 +15,7 @@ const MyList = () => {
     const {data,isLoading,refetch} = useQuery({
       queryKey:[userEmail],
       queryFn:async () =>{
-        const res= await fetch(`http://localhost:5000/mylist/${userEmail}`)
+        const res= await fetch(`https://trek-tek-crud-server.vercel.app/mylist/${userEmail}`)
         const data = await res.json()
         return data ;
       }

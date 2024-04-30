@@ -41,7 +41,7 @@ import CountrySpots from "../Pages/CountrySpots";
         {
           path:'/updatespot/:id',
           element:<UpdateTouristSpot></UpdateTouristSpot>,
-          loader:({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
+          loader:({params}) => fetch(`https://trek-tek-crud-server.vercel.app/spot/${params.id}`)
 
         },
         {
@@ -59,12 +59,12 @@ import CountrySpots from "../Pages/CountrySpots";
           element:<PrivateRouter>
             <Details></Details>
           </PrivateRouter>,
-          loader:({params}) => fetch(`http://localhost:5000/spot/${params.id}`)
+          loader:({params}) => fetch(`https://trek-tek-crud-server.vercel.app/spot/${params.id}`)
         },
         {
           path:'/country/:country_name',
           element:<CountrySpots></CountrySpots>,
-          loader:({params}) => fetch(`http://localhost:5000/country/${params.country_name}`)
+          loader:({params}) => fetch(`https://trek-tek-crud-server.vercel.app/country/${params.country_name}`)
         }
       ]
     },

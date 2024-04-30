@@ -9,7 +9,7 @@ const Country = () => {
     const [spots,setSpots] = useState([]);
     const [loading,setLoading] = useState(true)
   useEffect(()=>{
-    fetch('http://localhost:5000/countryList')
+    fetch('https://trek-tek-crud-server.vercel.app/countryList')
     .then(res => res.json())
     .then(data =>{
       setSpots(data)
