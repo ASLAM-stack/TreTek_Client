@@ -31,7 +31,7 @@ const Banner = () => {
         <SwiperSlide> 
         <div className="bg-[url('/1.jpg')] space-y-4 w-full pl-4 md:pl-16 h-[500px] bg-cover flex flex-col justify-center bg-center rounded-2xl">
           <Fade direction='down' triggerOnce={true}>
-          <h1 className="font-work font-bold text-4xl md:text-7xl text-[#9253ff]">TreTek</h1>
+          <h1 className="font-work font-bold text-4xl md:text-7xl text-[#a677f8]">TreTek</h1>
           </Fade>
         
         <p className="text-white text-base ">

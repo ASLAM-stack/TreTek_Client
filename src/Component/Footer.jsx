@@ -1,10 +1,11 @@
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+ 
 
 
 const Footer = () => {
     return (
-        <div className=" bg-black">
+        <div className=" bg-black mt-24">
         <footer className="footer p-10 bg-black text-base  text-white">
           <aside>
              <img className="w-[100px]" src="/Log34-removebg-preview.png" alt="" />
